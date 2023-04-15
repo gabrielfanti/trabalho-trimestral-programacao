@@ -13,13 +13,18 @@ namespace Venda.Iterativa.Commands
             try
             {
                 var vm = parameter as ListarProdutosViewModel;
-                vm.Pedido = ucReceber
-                    .Exibir(vm.MainUserControl, vm.Pedido);
+
+                if (vm.Pedido.Produtos.Count == 0) {
+                    MessageBox.Show("Selecione um produto para receber!");
+                    return;
+                }
+
+                vm.Pedido = ucReceber.Exibir(vm.MainUserControl, vm.Pedido);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
+            };
         }
     }
 }

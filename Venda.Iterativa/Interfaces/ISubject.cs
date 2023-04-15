@@ -1,6 +1,12 @@
-﻿namespace Venda.Iterativa.Interfaces
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Venda.Iterativa.Interfaces
 {
-    internal interface ISubject
+    interface ISubject
     {
         void Add(IObserver observer);
         void Remove(IObserver observer);

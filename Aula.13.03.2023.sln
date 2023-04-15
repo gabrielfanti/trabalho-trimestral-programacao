@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - WPF", "02 - WPF", "{EFAFCDCB-D17A-4278-A1BF-70DBF44C1EE0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Venda.Iterativa", "Venda.Iterativa\Venda.Iterativa.csproj", "{904893D2-52C7-4FE1-AE68-94A741113EC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{904893D2-52C7-4FE1-AE68-94A741113EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{904893D2-52C7-4FE1-AE68-94A741113EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{904893D2-52C7-4FE1-AE68-94A741113EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{904893D2-52C7-4FE1-AE68-94A741113EC6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{904893D2-52C7-4FE1-AE68-94A741113EC6} = {EFAFCDCB-D17A-4278-A1BF-70DBF44C1EE0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86F5925B-6381-4577-B06C-CB7C06D61B52}
+	EndGlobalSection
+EndGlobal

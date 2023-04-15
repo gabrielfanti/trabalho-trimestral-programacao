@@ -4,45 +4,29 @@ using Venda.Iterativa.Interfaces;
 
 namespace Venda.Iterativa.Classes
 {
-    internal abstract class AbstractViewModel : AbstractNotifyPropertyChange, ISubject
+    internal abstract class AbstractViewModel : AbstractNotifyPropertieChange, ISubject
     {
-        #region variaveis privadas
-
-        private readonly List<IObserver> _observers = new List<IObserver>();
         private string _titulo = string.Empty;
-
-        #endregion variaveis privadas
-
-        #region propriedades
+        private readonly List<IObserver> _observers = new List<IObserver>();
 
         public string Titulo 
         { 
-            get => _titulo;
-            set => SetField(ref _titulo, value);
+            get => _titulo; 
+            set => SetField(ref _titulo, value); 
         }
 
         public UserControl UserControl { get; protected set; }
-        public IObserver MainUserControl { get; protected set; }
-
-        #endregion propriedades
-
-        #region construtores
+        public IObserver MainUserControl { get; protected set; }   
 
         protected AbstractViewModel(string titulo)
         {
             Titulo = titulo;
         }
 
-        #endregion construtores
+        public void Add(IObserver observer) => _observers.Add(observer);
 
-        public void Add(IObserver observer)
-            => _observers.Add(observer);
+        public void Remove(IObserver observer) => _observers.Remove(observer);
 
-        public void Remove(IObserver observer)
-            => _observers.Remove(observer);
-
-        public void Notify()
-            => _observers.ForEach(x => { x.Update(this); });
-
+        public void Notify() => _observers.ForEach(x => { x.Update(this); });
     }
 }

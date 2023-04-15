@@ -6,23 +6,21 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:local="clr-namespace:Venda.Iterativa"
         mc:Ignorable="d"
-        WindowState="Maximized" Height="680" Width="720">
-    
+        WindowState="Maximized" Height="450" Width="800">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding ListarProdutos}" CommandParameter="{Binding}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="25 0 0 0">
-            <TextBlock Text="{Binding Titulo}" FontSize="28" FontWeight="SemiBold"
-                       FontFamily="Trebuchet MS" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding Titulo}" FontSize="28" FontWeight="SemiBold" FontFamily="Trebuchet MS" VerticalAlignment="Center"/>
         </StackPanel>
 
         <Frame Grid.Row="1" Content="{Binding UserControl}" NavigationUIVisibility="Hidden"/>

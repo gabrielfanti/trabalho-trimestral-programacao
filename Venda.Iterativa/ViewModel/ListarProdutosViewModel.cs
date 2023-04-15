@@ -11,34 +11,17 @@ namespace Venda.Iterativa.ViewModel
 {
     internal sealed class ListarProdutosViewModel : AbstractViewModel
     {
-        #region variaveis privadas
-
-        private const string C_DESCRICAO = "Sed sed enim vehicula, " +
-            "placerat enim ac, rutrum augue. Fusce tristique lacus " +
-            "tempus mattis convallis. Duis ac ultrices ex, " +
-            "sed ullamcorper leo. Etiam cursus consectetur sodales. " +
-            "Suspendisse congue nibh sed vestibulum interdum." +
-            " Duis convallis mauris sit amet justo fermentum aliquam." +
-            " Vestibulum congue pretium pharetra. Donec laoreet risus eu mattis " +
-            "congue. Pellentesque pulvinar finibus sagittis. Aliquam turpis ante," +
-            " luctus et magna quis, feugiat facilisis augue. Curabitur rutrum" +
-            " lorem at bibendum pellentesque. Nullam rhoncus, augue id imperdiet" +
-            " aliquam, nibh nisl gravida felis, interdum sagittis lacus augue" +
-            " non neque. Orci varius natoque penatibus et magnis dis parturient" +
-            " montes, nascetur ridiculus mus.";
+        private const string _C_DESCRICAO = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lobortis feugiat quam, non tristique leo tempor id. Duis in iaculis lorem. Curabitur sit amet interdum erat. Proin in sapien cursus, tincidunt dui nec, sagittis nulla. Pellentesque id placerat ante. Etiam pulvinar lobortis tempor. Nunc at metus blandit, eleifend ligula in, hendrerit metus. Praesent pulvinar urna ut sem varius, id rutrum magna malesuada. Morbi tempor leo id turpis scelerisque, et fermentum ex facilisis. Nam tincidunt pretium leo at mollis. Sed sit amet gravida augue. Maecenas imperdiet ut orci vel dapibus. Aliquam cursus porttitor luctus. Quisque tincidunt libero vehicula, mattis justo at, sollicitudin magna. Suspendisse pulvinar turpis ut diam iaculis pellentesque.";
 
         private ProdutoModel _produtoSelecionado = new ProdutoModel();
+        private ObservableCollection<ProdutoModel> _produtos = new ObservableCollection<ProdutoModel>();
         private PedidoModel _pedido = new PedidoModel();
-        private ObservableCollection<ProdutoModel> _produtos 
-            =  new ObservableCollection<ProdutoModel>();
 
-        #endregion variaveis privadas
 
-        #region propriedades
 
-        public ObservableCollection<ProdutoModel> Produtos 
-        { 
-            get => _produtos; 
+        public ObservableCollection<ProdutoModel> Produtos
+        {
+            get => _produtos;
             set => SetField(ref _produtos, value);
         }
 
@@ -54,22 +37,12 @@ namespace Venda.Iterativa.ViewModel
             set => SetField(ref _produtoSelecionado, value);
         }
 
-        #endregion propriedades
 
-        #region comandos
 
-        public AdicionarProdutoPedidoCommand Adicionar { get; private set; }
-            = new AdicionarProdutoPedidoCommand();
-
-        public ReceberPedidoCommand Receber { get; private set; }
-            = new ReceberPedidoCommand();
-
-        #endregion comandos
-
-        #region construtores
-
-        public ListarProdutosViewModel(UserControl userControl,
-            IObserver observer) : base("Lista de Produtos") 
+        public AdicionarProdutoPedidoCommand Adicionar { get; private set; } = new AdicionarProdutoPedidoCommand();
+        public RemoverProdutoPedidoCommand Remover { get; private set; } = new RemoverProdutoPedidoCommand();
+        public ReceberPedidoCommand Receber { get; private set; } = new ReceberPedidoCommand();
+        public ListarProdutosViewModel(UserControl userControl, IObserver observer) : base("Lista de Produtos")
         {
             UserControl = userControl;
             MainUserControl = observer;
@@ -78,55 +51,44 @@ namespace Venda.Iterativa.ViewModel
             CarregarProdutos();
         }
 
-        #endregion construtores
-
-        #region metodos
-
         private void CarregarProdutos()
         {
             Produtos.Clear();
+            Produtos.Add(new ProdutoModel()
+            {
+                Imagem = new BitmapImage(new Uri(@"..\net6.0-windows\Images\batata.png", UriKind.RelativeOrAbsolute)),
+                Referencia = "Batata",
+                Descricao = _C_DESCRICAO,
+                Estoque = 50.00m,
+                Preco = 32.90m,
+            });
 
             Produtos.Add(new ProdutoModel()
             {
-                Imagem = new BitmapImage(
-                    new Uri(@"..\net6.0-windows\Imagens\batata.png", UriKind.Relative)),
-                Referencia = "Batata",
-                Descricao = C_DESCRICAO,
+                Imagem = new BitmapImage(new Uri(@"..\net6.0-windows\Images\combo.png", UriKind.RelativeOrAbsolute)),
+                Referencia = "Combo",
+                Descricao = _C_DESCRICAO,
+                Estoque = 77.00m,
+                Preco = 32.49m,
+            });
+
+            Produtos.Add(new ProdutoModel()
+            {
+                Imagem = new BitmapImage(new Uri(@"..\net6.0-windows\Images\lanche.jpg", UriKind.RelativeOrAbsolute)),
+                Referencia = "Lanche",
+                Descricao = _C_DESCRICAO,
+                Estoque = 5.00m,
+                Preco = 17.99m,
+            });
+
+            Produtos.Add(new ProdutoModel()
+            {
+                Imagem = new BitmapImage(new Uri(@"..\net6.0-windows\Images\refrigerante.png", UriKind.RelativeOrAbsolute)),
+                Referencia = "Refrigerante",
+                Descricao = _C_DESCRICAO,
                 Estoque = 100.00m,
                 Preco = 8.90m,
             });
-            
-            Produtos.Add(new ProdutoModel()
-            {
-                Imagem = new BitmapImage(
-                    new Uri(@"..\net6.0-windows\Imagens\combo.png", UriKind.Relative)),
-                Referencia = "Combo",
-                Descricao = C_DESCRICAO,
-                Estoque = 100.00m,
-                Preco = 38.90m,
-            });
-            
-            Produtos.Add(new ProdutoModel()
-            {
-                Imagem = new BitmapImage(
-                    new Uri(@"..\net6.0-windows\Imagens\lanche.jpg", UriKind.Relative)),
-                Referencia = "Lanche",
-                Descricao = C_DESCRICAO,
-                Estoque = 100.00m,
-                Preco = 19.90m,
-            });
-            
-            Produtos.Add(new ProdutoModel()
-            {
-                Imagem = new BitmapImage(
-                    new Uri(@"..\net6.0-windows\Imagens\refrigerante.png", UriKind.Relative)),
-                Referencia = "Refrigerante",
-                Descricao = C_DESCRICAO,
-                Estoque = 1.00m,
-                Preco = 4.50m,
-            });
         }
-
-        #endregion metodos
     }
 }

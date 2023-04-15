@@ -4,42 +4,40 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
-    <ApplicationIcon>Icons\logo-umfg.ico</ApplicationIcon>
+    <UseWPF>true</UseWPF>    <ApplicationIcon>Icons\LOGO-CINZA-AVA-128-60_-UMFG-EDUCACIONAL.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Icons\logo-umfg.ico" />
-    <None Remove="Imagens\batata.png" />
-    <None Remove="Imagens\combo.png" />
-    <None Remove="Imagens\lanche.jpg" />
-    <None Remove="Imagens\refrigerante.png" />
+    <None Remove="Icons\LOGO-CINZA-AVA-128-60_-UMFG-EDUCACIONAL.ico" />
+    <None Remove="Images\batata.png" />
+    <None Remove="Images\combo.png" />
+    <None Remove="Images\lanche.jpg" />
+    <None Remove="Images\refrigerante.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Icons\logo-umfg.ico" />
+    <Content Include="Icons\LOGO-CINZA-AVA-128-60_-UMFG-EDUCACIONAL.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MaterialDesignColors" Version="2.1.2" />
     <PackageReference Include="MaterialDesignThemes" Version="4.8.0" />
     <PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Icons\logo-umfg.ico">
+    <Resource Include="Icons\LOGO-CINZA-AVA-128-60_-UMFG-EDUCACIONAL.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Content Include="Imagens\batata.png">
+    <Content Include="Images\batata.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Imagens\combo.png">
+    <Content Include="Images\combo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Imagens\lanche.jpg">
+    <Content Include="Images\lanche.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Imagens\refrigerante.png">
+    <Content Include="Images\refrigerante.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using Venda.Iterativa.Classes;
+using Venda.Iterativa.Commands;
 using Venda.Iterativa.Interfaces;
 using Venda.Iterativa.Model;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Venda.Iterativa.ViewModel
 {
@@ -20,8 +19,9 @@ namespace Venda.Iterativa.ViewModel
             set => SetField(ref _pedido, value);
         }
 
-        public ReceberViewModel(UserControl userControl, IObserver observer,
-            PedidoModel pedido) : base("UMFG | Receber")
+        public FinalizarPedidoCommand Finalizar { get; private set; } = new FinalizarPedidoCommand();
+
+        public ReceberViewModel(UserControl userControl, IObserver observer, PedidoModel pedido) : base("UMFG | Receber")
         {
             UserControl = userControl;
             MainUserControl = observer;
@@ -29,5 +29,6 @@ namespace Venda.Iterativa.ViewModel
 
             Add(observer ?? throw new ArgumentNullException(nameof(observer)));
         }
+
     }
 }

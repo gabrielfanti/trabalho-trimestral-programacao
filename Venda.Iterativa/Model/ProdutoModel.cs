@@ -10,17 +10,11 @@ namespace Venda.Iterativa.Model
 {
     internal sealed class ProdutoModel : AbstractModel
     {
-        #region variaveis privadas
-
         private ImageSource _imagem;
         private string _referencia;
         private string _descricao;
         private decimal _estoque;
         private decimal _preco;
-
-        #endregion variaveis privadas
-
-        #region propriedades
 
         public ImageSource Imagem
         {
@@ -51,7 +45,5 @@ namespace Venda.Iterativa.Model
             get => _preco;
             set => SetField(ref _preco, value);
         }
-
-        #endregion propriedades
     }
 }
